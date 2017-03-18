@@ -1,10 +1,20 @@
-page-login {}
+page-login {
 
-    .titulo{
-        font-family: 'Cabin Sketch', cursive;
-        text-align: center;
-        color: #08AE9E;
-        font-size: 4em;
+    .login-bg{
+      /*  background-image: url('../assets/img/fondo.PNG');*/
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+       
     }
 
+    .login-input{
+        background: transparent;
+    }
+
+    
+}
+
+
+    
 

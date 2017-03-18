@@ -1,23 +1,31 @@
-<ion-content padding>
-  <img width="40" height="40" src="../assets/img/logo.png">
-  <h4 class="titulo">Adogtame</h4>
+<ion-content class="login-bg" padding>
+  <img width="40" height="40" src="assets/img/logo.png">
+  <h4 class="logo-titulo" margin-bottom>Adogtame</h4>
 
 
-  <ion-item>
+  <ion-item class="login-input">
     <ion-label floating> Email </ion-label>
     <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
           Si cambio la variable me cambia el input y viceversa-->
     <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item margin-bottom class="login-input">
     <ion-label floating> Contraseña </ion-label>
     <ion-input name="contrasenia" type="password" [(ngModel)]="pass"></ion-input>
   </ion-item>
 
 
-  <button ion-button block (click)="login()"> Iniciar sesion </button>
-  <button ion-button clear (click)="createAccount()"> Crear cuenta </button>
+  <button ion-button block color="secondary" margin-top (click)="login()"> Iniciar sesion </button>
+
+  <ion-row justify-content-center>
+    <ion-col col-6>
+      <button ion-button clear color="dark" (click)="createAccount()"> Crear cuenta </button>  
+    </ion-col>
+
+    
+  </ion-row>
+  
 
 
 </ion-content>
