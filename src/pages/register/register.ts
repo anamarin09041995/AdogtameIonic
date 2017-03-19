@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 
 /*
@@ -19,8 +20,19 @@ export class RegisterPage {
   pass: string;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {}
   
+   login(){
+    this.navCtrl.push(HomePage);
+  }
+
+  loading(){
+    let loader = this.loadingCtrl.create({
+      content: "Procesando",
+      duration: 2000
+    });
+    loader.present();      
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');

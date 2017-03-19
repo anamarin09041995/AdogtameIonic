@@ -20,4 +20,15 @@
         text-align: center;
         color: color($colors, "secondary");
         font-size: 4em;
+        padding-top: 30px;
 }
+
+    .login-input{
+        background: transparent;
+        padding-top: 20px;
+    }
+
+    .login-row{
+        max-width: 100%;
+        padding-top: 40px;
+    }

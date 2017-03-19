@@ -1,10 +1,9 @@
 <ion-content padding>
   <img width="40" height="40" src="../assets/img/logo.png">
-
   <h4 class="logo-titulo">Adogtame</h4>
-
+  
+   <div  class="login-input">
       <ion-item>
-
         <ion-label floating> Email </ion-label>
         <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
         Si cambio la variable me cambia el input y viceversa-->
@@ -13,15 +12,21 @@
 
       <ion-item>
         <ion-label floating> Contraseña </ion-label>
-        <ion-input name= "Contraseña" type = "password" [(ngModel)] = "pass"></ion-input>
+        <ion-input name= "Contrasenia" type = "password" [(ngModel)] = "pass"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating> Ciudad </ion-label>
         <ion-input name= "Ciudad" type = "text" [(ngModel)] = "city"></ion-input>
       </ion-item>
+   </div>
    
-      <button class= "btn" ion-button block (click)="login()"> Registrar </button>
-
+   <div class="login-row">
+      <ion-row justify-content-center>
+        <ion-col col-8>
+          <button class= "btn"  color= "secondary" ion-button block (click)="login(); loading()"> Registrar </button>
+        </ion-col>
+      </ion-row>
+   </div>
 </ion-content>
 

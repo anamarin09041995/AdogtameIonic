@@ -2,14 +2,14 @@ page-login {
 
     .login-bg{
       /*  background-image: url('../assets/img/fondo.PNG');*/
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-       
+        // background-position: center;
+        // background-size: cover;
+        // background-repeat: no-repeat;
     }
 
-    .login-input{
-        background: transparent;
+    .link-register{
+        color: color($colors, secondary);
+        text-align: center;
     }
 
     
