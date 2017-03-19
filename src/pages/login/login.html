@@ -4,14 +4,17 @@
   
 
   <div class="login-input">
+
     <ion-item>
-      <ion-label floating> Email </ion-label>
+      <ion-icon name="mail" item-left primary small color="secondary" absolute></ion-icon>
+      <ion-label floating > Email </ion-label>
       <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
             Si cambio la variable me cambia el input y viceversa-->
       <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item margin-bottom>
+      <ion-icon name="lock" item-left primary small color="secondary"></ion-icon>
       <ion-label floating> Contraseña </ion-label>
       <ion-input name="contrasenia" type="password" [(ngModel)]="pass"></ion-input>
     </ion-item>

@@ -1,0 +1,2 @@
+<app-toolbar [title]= "titleList"></app-toolbar>
+<app-brochure-card *ngFor="let m of data" [mascota] = "m" (selected) = "itemSelected($event)"></app-brochure-card>
