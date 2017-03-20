@@ -23,7 +23,7 @@ export class LoginPage {
   loading(){
     let loader = this.loadingCtrl.create({
       content: "Procesando",
-      duration: 3000
+      duration: 2000
     });
     loader.present();      
   }

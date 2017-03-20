@@ -5,12 +5,22 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
+import { DonationsPage } from '../pages/donations/donations';
+import { VoluntaryPage } from '../pages/voluntary/voluntary';
+import { TracingPage } from '../pages/tracing/tracing';
+import { TabsPage } from '../pages/tabs/tabs';
+
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    VoluntaryPage,
+    DonationsPage,
+    TracingPage,
+    TabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,7 +30,11 @@ import { RegisterPage } from '../pages/register/register';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    VoluntaryPage,
+    DonationsPage,
+    TracingPage,
+    TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
