@@ -2,13 +2,18 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
+import { BrochurePage } from '../pages/brochure/brochure';
 import { DonationsPage } from '../pages/donations/donations';
 import { VoluntaryPage } from '../pages/voluntary/voluntary';
 import { TracingPage } from '../pages/tracing/tracing';
 import { TabsPage } from '../pages/tabs/tabs';
+
+import { UtilService } from '../providers/util-service';
+import { MascotaData } from '../providers/mascota-data';
 
 
 @NgModule({
@@ -20,7 +25,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     VoluntaryPage,
     DonationsPage,
     TracingPage,
-    TabsPage
+    TabsPage,
+    BrochurePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -34,8 +40,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     VoluntaryPage,
     DonationsPage,
     TracingPage,
-    TabsPage
+    TabsPage,
+    BrochurePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: 
+  [{provide: ErrorHandler, useClass: IonicErrorHandler }, UtilService, MascotaData]
 })
 export class AppModule {}

@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>brochure</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title>Catalogo</ion-title>
+    </ion-toolbar>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div *ngFor="let mascota of mascotas">
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-left>
+          <img width= "40" height="40" src="{{mascota.imagen}}">
+        </ion-avatar>
+        <h1>{{mascota.nombre}}</h1>
+        <p>{{mascota.edad}}</p>
+        <p>{{mascota.raza}}</p>
+        <p>{{mascota.tamanio}}</p>
+      </ion-item>
+    </ion-card>
+  </div>
 
 </ion-content>

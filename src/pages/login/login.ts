@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
+import { UtilService } from '../../providers/util-service';
+import { BrochurePage } from '../brochure/brochure';
 
 /*
   Generated class for the Login page.
@@ -18,22 +20,18 @@ export class LoginPage {
   email: string;
   pass: string;
   
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController){}
-
-  loading(){
-    let loader = this.loadingCtrl.create({
-      content: "Procesando",
-      duration: 2000
-    });
-    loader.present();      
+  constructor(public navCtrl: NavController, public loading: UtilService){
+    
   }
 
   createAccount(){
+    this.loading.showloading();
     this.navCtrl.push(RegisterPage);
   }
 
-  login(){
-    this.navCtrl.push(HomePage);
+  goToBrochure(){
+    this.loading.showloading();
+    this.navCtrl.push(BrochurePage);
   }
     
   ionViewDidLoad() {

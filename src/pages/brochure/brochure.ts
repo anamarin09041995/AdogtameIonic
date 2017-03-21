@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Mascota, MascotaData} from '../../providers/mascota-data';
 
 /*
   Generated class for the Brochure page.
@@ -13,10 +14,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class BrochurePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  mascotas: Mascota[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: MascotaData) {
+    this.mascotas = this.service.data;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrochurePage');
   }
 
 }
+
