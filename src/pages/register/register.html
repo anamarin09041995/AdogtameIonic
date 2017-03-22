@@ -1,35 +1,48 @@
 <ion-content padding>
   <img width="40" height="40" src="../assets/img/logo.png">
-  <h4 class="logo-titulo">Adogtame</h4>
-  
-   <div  class="login-input">
-      <ion-item>
-        <ion-icon name="mail" item-left primary small color="secondary" absolute></ion-icon>
-        <ion-label floating> Email </ion-label>
-        <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
-        Si cambio la variable me cambia el input y viceversa-->
-        <ion-input name= "Email" type = "email" [(ngModel)] = "email"></ion-input> 
-      </ion-item>
 
-      <ion-item>
-        <ion-icon name="lock" item-left primary small color="secondary" absolute></ion-icon>
-        <ion-label floating> Contraseña </ion-label>
-        <ion-input name= "Contrasenia" type = "password" [(ngModel)] = "pass"></ion-input>
-      </ion-item>
+  <div class="register-main">
+    <h4 class="logo-titulo">Adogtame</h4>
 
-      <ion-item>
-        <ion-icon name="home" item-left primary small color="secondary" absolute></ion-icon>
-        <ion-label floating> Ciudad </ion-label>
-        <ion-input name= "Ciudad" type = "text" [(ngModel)] = "city"></ion-input>
-      </ion-item>
-   </div>
-   
-   <div class="login-row">
-      <ion-row justify-content-center>
-        <ion-col col-8>
-          <button class= "btn"  color= "secondary" ion-button block (click)="goToBrochure()"> Registrar </button>
-        </ion-col>
-      </ion-row>
-   </div>
+    <div class="register-inputs">
+      <form #form="ngForm">
+        <ion-row align-items-end>
+          <ion-col col-11 col-md-6 col-lg-4>
+            <ion-item>
+              <ion-icon ion-col col-1 text-right name="mail" item-left primary small color="secondary" absolute></ion-icon>
+              <ion-label floating> Email </ion-label>
+              <ion-input name="Email" type="email" required [(ngModel)]="email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row align-items-end>
+          <ion-col col-11 col-md-6 col-lg-4>
+            <ion-item>
+              <ion-icon ion-col col-1 text-right name="lock" item-left primary small color="secondary" absolute></ion-icon>
+              <ion-label floating> Contraseña </ion-label>
+              <ion-input name="Contrasenia" type="password" required[(ngModel)]="pass"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row align-items-end>
+          <ion-col col-11 col-md-6 col-lg-4>
+            <ion-item>
+              <ion-icon ion-col col-1 text-right name="home" item-left primary small color="secondary" absolute></ion-icon>
+              <ion-label floating> Ciudad </ion-label>
+              <ion-input name="Ciudad" type="text" required [(ngModel)]="city"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+
+    <ion-row justify-content-center>
+      <ion-col ion-col col-6 col-md-6 col-lg-6>
+        <button class="btn" color="secondary" ion-button block (click)="goToBrochure()" full [disabled]="!form.valid"> Registrar </button>
+      </ion-col>
+    </ion-row>
+
+  </div>
 </ion-content>
-

@@ -1,50 +1,45 @@
 <ion-content padding>
   <img width="40" height="40" src="assets/img/logo.png">
-  <h4 class="logo-titulo" margin-bottom>Adogtame</h4>
+
+  <div class="login-main">
+    <h4 class="logo-titulo" margin-bottom>Adogtame</h4>
 
 
-  <div class="login-input">
+    <div class="login-inputs">
+      <form #form="ngForm">
+        <ion-row align-items-end>
+          <ion-col col-11 col-md-11 col-lg-11>
+            <ion-item color="itemLight">>
+              <ion-icon ion-col col-1 text-right name="mail" item-left primary small color="secondary"></ion-icon>
+              <ion-label floating color="primary"> Email </ion-label>
+              <ion-input name="email" type="email" required [(ngModel)]="email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
 
-    <ion-row align-items-end>
-      <ion-icon ion-col col-1 text-right name="mail" color="secondary"></ion-icon>
-      <div ion-col col-11>
-        <ion-item>
-          <ion-label floating> Email </ion-label>
-          <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
-            Si cambio la variable me cambia el input y viceversa-->
-          <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
-        </ion-item>
-      </div>
-    </ion-row>
+        <ion-row align-items-end>
+          <ion-col col-11 col-md-11 col-lg-11>
+            <ion-item color="itemLight">
+              <ion-icon ion-col col-1 text-right name="lock" item-left primary small color="secondary"></ion-icon>
+              <ion-label floating color="primary"> Contraseña </ion-label>
+              <ion-input name="contrasenia" type="password" required [(ngModel)]="pass"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
 
-    <ion-item>
-      <ion-icon name="mail" item-left primary small color="secondary"></ion-icon>
-      <ion-label floating> Email </ion-label>
-      <!--El [(ngModel)] = "" permite que se pueda hacer data binding en doble sentido
-            Si cambio la variable me cambia el input y viceversa-->
-      <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
-
-    <ion-item margin-bottom>
-      <ion-icon name="lock" item-left primary small color="secondary"></ion-icon>
-      <ion-label floating> Contraseña </ion-label>
-      <ion-input name="contrasenia" type="password" [(ngModel)]="pass"></ion-input>
-    </ion-item>
-  </div>
-
-  <div class="login-row">
     <ion-row justify-content-center>
-      <ion-col col-8>
-        <button ion-button block color="secondary" margin-top (click)="goToBrochure()" full> Iniciar sesion </button>
+      <ion-col ion-col col-6 col-md-6 col-lg-6>
+        <button ion-button block color="secondary" margin-top (click)="goToBrochure()" full [disabled]="!form.valid"> Iniciar sesion </button>
       </ion-col>
     </ion-row>
 
     <ion-row justify-content-center>
-      <ion-col col-4>
-        <a href="#" class="link-register" (click)="createAccount()" full>Crear cuenta</a>
-        <!--<button ion-button clear color="secondary" (click)="createAccount()" full> Crear cuenta </button>  -->
+      <ion-col ion-col col-6 col-md-6 col-lg-6>
+        <button ion-button clear color="secondary" (click)="createAccount()" full [disabled]="!form.valid"> Crear cuenta </button>
       </ion-col>
     </ion-row>
-  </div>
 
+  </div>
 </ion-content>

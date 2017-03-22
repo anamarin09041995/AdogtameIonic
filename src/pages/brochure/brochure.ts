@@ -20,6 +20,9 @@ export class BrochurePage {
     this.mascotas = this.service.data;
   }
 
+  goToDetail(){
+    //this.navCtrl.push(DetailPage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrochurePage');
   }

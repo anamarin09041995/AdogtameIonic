@@ -5,29 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-toolbar color="primary">
-      <ion-title>Catalogo</ion-title>
-    </ion-toolbar>
-  </ion-navbar>
-
+  <ion-toolbar item-left color="primary">
+    <ion-title>Catalogo</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
-  <div *ngFor="let mascota of mascotas">
-    <ion-card>
-      <ion-item>
-        <ion-avatar item-left>
-          <img width= "40" height="40" src="{{mascota.imagen}}">
-        </ion-avatar>
-        <h1>{{mascota.nombre}}</h1>
-        <p>{{mascota.edad}}</p>
-        <p>{{mascota.raza}}</p>
-        <p>{{mascota.tamanio}}</p>
-      </ion-item>
-    </ion-card>
-  </div>
-
+  <ion-row>
+    <ion-col *ngFor="let mascota of mascotas" col-12 col-md-6 col-lg-4>
+      <ion-card margin top>
+        <ion-item>
+          <ion-avatar item-left>
+            <img width="60" height="60" src="{{mascota.imagen}}">
+          </ion-avatar>
+          <h1>Nombre: {{mascota.nombre}}</h1>
+          <p>Edad: {{mascota.edad}}</p>
+          <p>Raza: {{mascota.raza}}</p>
+          <p>Tamaño: {{mascota.tamanio}}</p>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
