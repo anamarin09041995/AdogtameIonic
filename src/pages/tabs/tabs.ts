@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { TracingPage } from '../tracing/tracing';
-// import { BrochurePage } from '../brochure/brochure';
+import { BrochurePage } from '../brochure/brochure';
 import { VoluntaryPage } from '../voluntary/voluntary';
 import { DonationsPage } from '../donations/donations';
+
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the Tabs page.
@@ -18,13 +20,15 @@ import { DonationsPage } from '../donations/donations';
 })
 export class TabsPage {
 
-  // tab1Root: any = BrochurePage;
+  tab1Root: any = BrochurePage;
   tab2Root: any = DonationsPage;
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    storage.get("user").then(val =>{console.log(val);});
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
-import { HomePage } from '../home/home';
+
 import { UtilService } from '../../providers/util-service';
-import { BrochurePage } from '../brochure/brochure';
+
+import { TabsPage } from '../tabs/tabs';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the Login page.
@@ -20,7 +22,7 @@ export class LoginPage {
   email: string;
   pass: string;
   
-  constructor(public navCtrl: NavController, public loading: UtilService){
+  constructor(public navCtrl: NavController, public loading: UtilService, public storage: Storage){
     
   }
 
@@ -30,8 +32,11 @@ export class LoginPage {
   }
 
   goToBrochure(){
+    let data = {email:this.email, pass:this.pass}
+    this.storage.set("logged", true );
+    this.storage.set("user", JSON.stringify(data));
     this.loading.showloading();
-    this.navCtrl.push(BrochurePage);
+    this.navCtrl.setRoot(TabsPage);
   }
     
   ionViewDidLoad() {

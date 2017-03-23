@@ -14,16 +14,14 @@
 <ion-content padding>
   <ion-row>
     <ion-col *ngFor="let mascota of mascotas" col-12 col-md-6 col-lg-4>
-      <ion-card margin top>
-        <ion-item>
-          <ion-avatar item-left>
-            <img width="60" height="60" src="{{mascota.imagen}}">
-          </ion-avatar>
-          <h1>Nombre: {{mascota.nombre}}</h1>
+      <ion-card>
+        <img width="60" height="60" src="{{mascota.imagen}}">
+        <ion-card-content>
+          <ion-card-title>Nombre: {{mascota.nombre}}</ion-card-title>
           <p>Edad: {{mascota.edad}}</p>
           <p>Raza: {{mascota.raza}}</p>
           <p>Tamaño: {{mascota.tamanio}}</p>
-        </ion-item>
+        </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
