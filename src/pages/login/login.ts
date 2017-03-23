@@ -30,6 +30,7 @@ export class LoginPage {
   }
 
   goToBrochure(){
+    let data = {email:this.email, pass:this.pass}
     this.loading.showloading();
     this.navCtrl.push(BrochurePage);
   }

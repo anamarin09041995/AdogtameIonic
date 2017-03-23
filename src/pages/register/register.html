@@ -7,9 +7,11 @@
     <div class="register-inputs">
       <form #form="ngForm">
         <ion-row align-items-end>
-          <ion-col col-11 col-md-6 col-lg-4>
+          <ion-col col-1 text-right>
+            <ion-icon name="mail" item-left primary small color="secondary" absolute></ion-icon>
+          </ion-col>
+          <ion-col col-11 col-md-11 col-lg-11>
             <ion-item>
-              <ion-icon ion-col col-1 text-right name="mail" item-left primary small color="secondary" absolute></ion-icon>
               <ion-label floating> Email </ion-label>
               <ion-input name="Email" type="email" required [(ngModel)]="email"></ion-input>
             </ion-item>
@@ -17,19 +19,23 @@
         </ion-row>
 
         <ion-row align-items-end>
-          <ion-col col-11 col-md-6 col-lg-4>
+          <ion-col col-1 text-right>
+            <ion-icon name="lock" item-left primary small color="secondary" absolute></ion-icon>
+          </ion-col>
+          <ion-col col-11 col-md-11 col-lg-11>
             <ion-item>
-              <ion-icon ion-col col-1 text-right name="lock" item-left primary small color="secondary" absolute></ion-icon>
               <ion-label floating> Contraseña </ion-label>
-              <ion-input name="Contrasenia" type="password" required[(ngModel)]="pass"></ion-input>
+              <ion-input name="Contrasenia" type="password" required [(ngModel)]="pass"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row align-items-end>
-          <ion-col col-11 col-md-6 col-lg-4>
+          <ion-col col-1 text-right>
+            <ion-icon name="home" item-left primary small color="secondary" absolute></ion-icon>
+          </ion-col>
+          <ion-col col-11 col-md-11 col-lg-11>
             <ion-item>
-              <ion-icon ion-col col-1 text-right name="home" item-left primary small color="secondary" absolute></ion-icon>
               <ion-label floating> Ciudad </ion-label>
               <ion-input name="Ciudad" type="text" required [(ngModel)]="city"></ion-input>
             </ion-item>

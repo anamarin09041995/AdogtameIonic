@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { TracingPage } from '../tracing/tracing';
-// import { BrochurePage } from '../brochure/brochure';
+import { BrochurePage } from '../brochure/brochure';
 import { VoluntaryPage } from '../voluntary/voluntary';
 import { DonationsPage } from '../donations/donations';
 
@@ -18,7 +18,7 @@ import { DonationsPage } from '../donations/donations';
 })
 export class TabsPage {
 
-  // tab1Root: any = BrochurePage;
+  tab1Root: any = BrochurePage;
   tab2Root: any = DonationsPage;
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
