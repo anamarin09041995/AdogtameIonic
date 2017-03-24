@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Mascota, MascotaData} from '../../providers/mascota-data';
-
+import { DetailBrochurePage } from '../detail-brochure/detail-brochure';
 /*
   Generated class for the Brochure page.
 
@@ -20,12 +20,11 @@ export class BrochurePage {
     this.mascotas = this.service.data;
   }
 
-  goToDetail(){
-    //this.navCtrl.push(DetailPage);
+  goToDetail(mascota : Mascota){
+//    this.navCtrl.parent.push(DetailBrochurePage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrochurePage');
   }
-
 }
 

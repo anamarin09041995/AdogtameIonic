@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UtilService } from '../../providers/util-service';
-import { BrochurePage } from '../brochure/brochure';
+import { TabsPage } from '../tabs/tabs';
 
 
 /*
@@ -25,7 +25,7 @@ export class RegisterPage {
   
   goToBrochure(){
     this.loading.showloading();
-    this.navCtrl.push(BrochurePage);
+    this.navCtrl.setRoot(TabsPage);
   }
 
   ionViewDidLoad() {

@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule} from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -29,7 +30,8 @@ import { MascotaData } from '../providers/mascota-data';
     BrochurePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
