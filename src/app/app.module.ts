@@ -12,6 +12,7 @@ import { DonationsPage } from '../pages/donations/donations';
 import { VoluntaryPage } from '../pages/voluntary/voluntary';
 import { TracingPage } from '../pages/tracing/tracing';
 import { TabsPage } from '../pages/tabs/tabs';
+import { DetailBrochurePage } from '../pages/detail-brochure/detail-brochure';
 
 import { UtilService } from '../providers/util-service';
 import { MascotaData } from '../providers/mascota-data';
@@ -27,7 +28,8 @@ import { MascotaData } from '../providers/mascota-data';
     DonationsPage,
     TracingPage,
     TabsPage,
-    BrochurePage
+    BrochurePage,
+    DetailBrochurePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -43,7 +45,8 @@ import { MascotaData } from '../providers/mascota-data';
     DonationsPage,
     TracingPage,
     TabsPage,
-    BrochurePage
+    BrochurePage,
+    DetailBrochurePage
   ],
   providers: 
   [{provide: ErrorHandler, useClass: IonicErrorHandler }, UtilService, MascotaData]

@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Mascota, MascotaData} from '../../providers/mascota-data';
 import { DetailBrochurePage } from '../detail-brochure/detail-brochure';
@@ -17,7 +17,8 @@ export class BrochurePage {
   }
 
   goToDetail(index:  number){
-    this.navCtrl.parent.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen});
+    this.navCtrl.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen, fundacion: this.mascotas[index].fundacion,
+                      contacto: this.mascotas[index].contacto, descripcion: this.mascotas[index].descripcion});
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrochurePage');
