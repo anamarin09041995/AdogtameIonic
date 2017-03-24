@@ -28,7 +28,7 @@
         font-size: 1.5em;
 }
 
-.full-image{
+.full-image, .detail-image{
         /*position: relative;
         max-width: 100%;
         max-height: 100%;
@@ -38,6 +38,15 @@
         height: 300px;
 }
 
+@media only screen and (min-width:768px){
+        .detail-image{
+                height: 500px;
+        }
+}
 
-
-   
+@media only screen and (min-width:992px){
+        .detail-image{
+                height: 600px;
+        }
+}
+ 
