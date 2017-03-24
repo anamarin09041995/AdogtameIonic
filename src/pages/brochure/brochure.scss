@@ -1,3 +1,17 @@
 page-brochure {
 
+     .brochure-main{
+            display: flex;
+            height: 100%;
+            flex-direction: column;        
+        }
+
+        .brochure-inputs{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        
+        }
+
 }

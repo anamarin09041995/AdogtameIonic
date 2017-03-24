@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the DetailBrochure page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-detail-brochure',
   templateUrl: 'detail-brochure.html'
 })
 export class DetailBrochurePage {
 
+  nombre: string;
+  imagen: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailBrochurePage');
+    this.nombre = this.navParams.get("nombre");
+    this.imagen = this.navParams.get("imagen");
   }
 
 }

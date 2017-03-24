@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Mascota, MascotaData} from '../../providers/mascota-data';
 import { DetailBrochurePage } from '../detail-brochure/detail-brochure';
-/*
-  Generated class for the Brochure page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-brochure',
   templateUrl: 'brochure.html'
 })
 export class BrochurePage {
+  
 
   mascotas: Mascota[];
 
@@ -20,8 +16,8 @@ export class BrochurePage {
     this.mascotas = this.service.data;
   }
 
-  goToDetail(mascota : Mascota){
-//    this.navCtrl.parent.push(DetailBrochurePage);
+  goToDetail(index:  number){
+    this.navCtrl.parent.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen});
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrochurePage');
