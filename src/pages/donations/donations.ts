@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Fundacion, FundacionData } from '../../providers/fundacion-data';
+import { DetailDonationPage } from '../detail-donation/detail-donation';
 
-/*
-  Generated class for the Donations page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-donations',
   templateUrl: 'donations.html'
 })
 export class DonationsPage {
 
-  constructor(public navCtrl: NavController) {}
+  fundaciones: Fundacion[];
 
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad DonationsPage');
-  // }
+  constructor(public navCtrl: NavController, public service: FundacionData) {
+    this.fundaciones = this.service.data;
+  }
+
+goToDetail(index:  number){
+    this.navCtrl.push(DetailDonationPage, {nombre: this.fundaciones[index].nombre, direccion: this.fundaciones[index].direccion, telefono: this.fundaciones[index].telefono,
+                      imagen: this.fundaciones[index].imagen, descripcion: this.fundaciones[index].descripcion});
+  }
 
 }

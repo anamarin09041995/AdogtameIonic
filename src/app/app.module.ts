@@ -13,9 +13,11 @@ import { VoluntaryPage } from '../pages/voluntary/voluntary';
 import { TracingPage } from '../pages/tracing/tracing';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DetailBrochurePage } from '../pages/detail-brochure/detail-brochure';
+import { DetailDonationPage } from '../pages/detail-donation/detail-donation';
 
 import { UtilService } from '../providers/util-service';
 import { MascotaData } from '../providers/mascota-data';
+import { FundacionData } from '../providers/fundacion-data';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { MascotaData } from '../providers/mascota-data';
     TracingPage,
     TabsPage,
     BrochurePage,
-    DetailBrochurePage
+    DetailBrochurePage,
+    DetailDonationPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,9 +49,10 @@ import { MascotaData } from '../providers/mascota-data';
     TracingPage,
     TabsPage,
     BrochurePage,
-    DetailBrochurePage
+    DetailBrochurePage,
+    DetailDonationPage
   ],
   providers: 
-  [{provide: ErrorHandler, useClass: IonicErrorHandler }, UtilService, MascotaData]
+  [{provide: ErrorHandler, useClass: IonicErrorHandler }, UtilService, MascotaData, FundacionData]
 })
 export class AppModule {}

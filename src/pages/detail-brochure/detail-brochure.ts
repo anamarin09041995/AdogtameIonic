@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -13,10 +13,10 @@ export class DetailBrochurePage {
   fundacion: string;
   contacto: number;
   descripcion: string;
-  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+
   }
 
   ionViewDidLoad() {
@@ -28,11 +28,16 @@ export class DetailBrochurePage {
     this.descripcion = this.navParams.get("descripcion");
   }
 
-  adoptar(){
-        alert("");
-    }
+  adoptar() {
+    let alert = this.alertCtrl.create({
+      title: '¡Gracias por adoptar!',
+      subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
+      buttons: ['Aceptar']
+    });
+    alert.present();
+  }
 
-  apadrinar(){
+  apadrinar() {
 
   }
 
