@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 /*
   Generated class for the DetailDonation page.
@@ -18,8 +18,11 @@ export class DetailDonationPage {
   telefono: number;
   descripcion:string;
   imagen: string;
+  value: string;
+  alimento: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailDonationPage');
@@ -30,4 +33,35 @@ export class DetailDonationPage {
     this.descripcion = this.navParams.get("descripcion");
   }
 
-}
+  isChecked(){
+      console.log(this.alimento);
+      //  if(checked==true){
+      //     console.log('El valor es '+ v);
+      //  }
+    }
+
+     donar(){
+     let confirm = this.alertCtrl.create({
+      title: '¡Muchas gracias por donar a '+ this.nombre,
+      message: 'Va a donar 10000 destinados a ' + this.alimento ? 'alimento' : '',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Cancelado');
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('De acuerdo');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  }
+
+

@@ -36,7 +36,7 @@ export class LoginPage {
     this.storage.set("logged", true );
     this.storage.set("user", JSON.stringify(data));
     this.loading.showloading();
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.push(TabsPage);
   }
     
   ionViewDidLoad() {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { BrochurePage} from '../brochure/brochure';
 
 
 @Component({
@@ -30,11 +31,12 @@ export class DetailBrochurePage {
 
   adoptar() {
     let alert = this.alertCtrl.create({
-      title: '¡Gracias por adoptar!',
+      title: '¡Muchas gracias por adoptar a '+ this.nombre,
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
       buttons: ['Aceptar']
     });
     alert.present();
+    this.navCtrl.pop(BrochurePage);
   }
 
   apadrinar() {
