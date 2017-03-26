@@ -18,6 +18,13 @@
 
 
       <ion-item>
+        <ion-label>Valores</ion-label>
+        <ion-select [(ngModel)]="selectedvalue" #item>
+          <ion-option *ngFor="let item of items" selected="{{item.checked}}">{{item.text}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!--<ion-item>
         <ion-label>Valores de donación</ion-label>
         <ion-select color="secondary" [(ngModel)]="valores" multiple="false">
           <ion-option>10000</ion-option>
@@ -25,29 +32,19 @@
           <ion-option>30000</ion-option>
           <ion-option>40000</ion-option>
         </ion-select>
-      </ion-item>
+      </ion-item>-->
+
       <h3 class="distance-top">
         <ion-icon name="redo" item-left small color="secondary" margin-right class="distance-top"></ion-icon>¿A qué desea destinar la donación?</h3>
-
-
-      <!--<ion-item *ngFor="let item of options; let i=index">
-        <ion-label>{{item}}</ion-label>
-        <ion-checkbox item-right [ngModel]="checkedIdx == i" (ngModelChange)="$event ? checkedIdx = i : checkedIdx = -1" [disabled]="checkedIdx >= 0 && checkedIdx != i"></ion-checkbox>
-      </ion-item>-->
-      
 
       <ion-list>
         <ion-item>
           <ion-label class="distance-top">Alimento</ion-label>
-          <ion-checkbox name="alimento"  (click)= "isChecked()"  color="secondary"  value= "Alimento" class="distance-top" [(ngModel)]="alimento" disable="false"></ion-checkbox>
+          <ion-checkbox color="secondary" class="distance-top" [(ngModel)]="alimento"></ion-checkbox>
         </ion-item>
         <ion-item>
           <ion-label>Implementos de salud y aseo</ion-label>
-          <ion-checkbox checked="false" color="secondary" value= "Implementos de salud y aseo" disabled="false" [(ngModel)]="salud"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Apadrinar</ion-label>
-          <ion-checkbox  checked="false" value= "apadrinar" color="secondary" disable="false" [(ngModel)]="apadrinar"></ion-checkbox>
+          <ion-checkbox color="secondary" [(ngModel)]="salud"></ion-checkbox>
         </ion-item>
       </ion-list>
 

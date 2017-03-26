@@ -16,13 +16,15 @@ export class DetailDonationPage {
   nombre: string;
   direccion: string;
   telefono: number;
-  descripcion:string;
+  descripcion: string;
   imagen: string;
   value: string;
   alimento: boolean;
+  salud: boolean;
+  items: Array<{text: string, checked: boolean}> = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailDonationPage');
@@ -31,19 +33,17 @@ export class DetailDonationPage {
     this.telefono = this.navParams.get("telefono");
     this.direccion = this.navParams.get("direccion");
     this.descripcion = this.navParams.get("descripcion");
+
+    this.items.push({text: '10000', checked: false});
+    this.items.push({text: '20000', checked: false});
+    this.items.push({text: '30000', checked: false});
+    this.items.push({text: '40000', checked: false});
   }
 
-  isChecked(){
-      console.log(this.alimento);
-      //  if(checked==true){
-      //     console.log('El valor es '+ v);
-      //  }
-    }
-
-     donar(){
-     let confirm = this.alertCtrl.create({
-      title: '¡Muchas gracias por donar a '+ this.nombre,
-      message: 'Va a donar 10000 destinados a ' + this.alimento ? 'alimento' : '',
+  donar() {
+    let confirm = this.alertCtrl.create({
+      title: '¡Muchas gracias por donar a ' + this.nombre,
+      message: 'Va a donar destinados a ' + (this.alimento ? 'alimento ' : '') + (this.salud ? 'e implementos de salud y aseo' : ''),
       buttons: [
         {
           text: 'Cancelar',
@@ -54,6 +54,9 @@ export class DetailDonationPage {
         {
           text: 'Confirmar',
           handler: () => {
+            if(this.alimento == true){
+              
+            }
             console.log('De acuerdo');
           }
         }
@@ -62,6 +65,6 @@ export class DetailDonationPage {
     confirm.present();
   }
 
-  }
+}
 
 
