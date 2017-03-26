@@ -21,7 +21,8 @@ export class DetailDonationPage {
   value: string;
   alimento: boolean;
   salud: boolean;
-  items: Array<{text: string, checked: boolean}> = [];
+  selectedvalue: number;
+  items: Array<{ value: number}> = [];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) { }
@@ -34,16 +35,17 @@ export class DetailDonationPage {
     this.direccion = this.navParams.get("direccion");
     this.descripcion = this.navParams.get("descripcion");
 
-    this.items.push({text: '10000', checked: false});
-    this.items.push({text: '20000', checked: false});
-    this.items.push({text: '30000', checked: false});
-    this.items.push({text: '40000', checked: false});
+    this.items.push({value:10000});
+    this.items.push({value:20000});
+    this.items.push({value:30000});
+    this.items.push({value:40000});
   }
 
   donar() {
+    console.log(this.selectedvalue);
     let confirm = this.alertCtrl.create({
       title: '¡Muchas gracias por donar a ' + this.nombre,
-      message: 'Va a donar destinados a ' + (this.alimento ? 'alimento ' : '') + (this.salud ? 'e implementos de salud y aseo' : ''),
+      message: 'Va a donar '+ this.selectedvalue +' destinados a ' + (this.alimento ? 'alimento ' : '') + (this.salud ? 'e implementos de salud y aseo' : ''),
       buttons: [
         {
           text: 'Cancelar',

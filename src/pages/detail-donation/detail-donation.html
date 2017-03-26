@@ -19,8 +19,8 @@
 
       <ion-item>
         <ion-label>Valores</ion-label>
-        <ion-select [(ngModel)]="selectedvalue" #item>
-          <ion-option *ngFor="let item of items" selected="{{item.checked}}">{{item.text}}</ion-option>
+        <ion-select [(ngModel)]="selectedvalue">
+          <ion-option *ngFor="let item of items" [value]= "item.value" >{{item.value|currency}}</ion-option>
         </ion-select>
       </ion-item>
 
