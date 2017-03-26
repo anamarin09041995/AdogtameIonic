@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { DonationsPage} from '../donations/donations';
 
 /*
   Generated class for the DetailDonation page.

@@ -20,19 +20,9 @@
       <ion-item>
         <ion-label>Valores</ion-label>
         <ion-select [(ngModel)]="selectedvalue">
-          <ion-option *ngFor="let item of items" [value]= "item.value" >{{item.value|currency}}</ion-option>
+          <ion-option *ngFor="let item of items" [value]= "item.value" >{{ item.value|currency:'USD':true:'1.0-0'}}</ion-option>
         </ion-select>
       </ion-item>
-
-      <!--<ion-item>
-        <ion-label>Valores de donación</ion-label>
-        <ion-select color="secondary" [(ngModel)]="valores" multiple="false">
-          <ion-option>10000</ion-option>
-          <ion-option>20000</ion-option>
-          <ion-option>30000</ion-option>
-          <ion-option>40000</ion-option>
-        </ion-select>
-      </ion-item>-->
 
       <h3 class="distance-top">
         <ion-icon name="redo" item-left small color="secondary" margin-right class="distance-top"></ion-icon>¿A qué desea destinar la donación?</h3>

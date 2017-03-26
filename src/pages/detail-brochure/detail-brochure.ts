@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { BrochurePage} from '../brochure/brochure';
+import { TracingPage } from '../tracing/tracing';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class DetailBrochurePage {
   }
 
   apadrinar() {
-
+   
   }
 
 }

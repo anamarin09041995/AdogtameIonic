@@ -1,19 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { Fundacion, FundacionData } from '../../providers/fundacion-data';
 
-/*
-  Generated class for the Voluntary page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-voluntary',
   templateUrl: 'voluntary.html'
 })
 export class VoluntaryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  fundaciones: Fundacion[];
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public service: FundacionData) {
+    this.fundaciones = this.service.data;
+  }
+
+  confirm(index: number){
+    let alert = this.alertCtrl.create({
+      title: '¡Muchas gracias por ser voluntario en '+ this.fundaciones[index].nombre + '!',
+      subTitle: 'Nuestros horarios disponibles son: ' + this.fundaciones[index].horario,
+      buttons: ['Aceptar']
+    });
+    alert.present();
+  }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VoluntaryPage');
