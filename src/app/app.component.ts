@@ -10,19 +10,21 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage;
+  rootPage= LoginPage;
  
 
  
   constructor(platform: Platform, public storage: Storage) {
     platform.ready().then(() => {
-       storage.get("logged").then((val) => {
-        if (val){
-          this.rootPage = TabsPage;
-        }else{
-          this.rootPage = LoginPage;
-        }
-      })
+      
+      //  storage.get("logged").then((val) => {
+      //   if (val){
+      //     this.rootPage = TabsPage;
+      //   }else{
+      //     this.rootPage = LoginPage;
+      //   }
+      // })
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
