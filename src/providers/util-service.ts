@@ -3,12 +3,6 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 
-/*
-  Generated class for the UtilService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class UtilService {  
 
@@ -18,7 +12,7 @@ export class UtilService {
 
   showloading(){
     let loader = this.loadingCtrl.create({
-      content: "Procesando",
+      content: "Cargando...",
       duration: 2000
     });
     loader.present();      

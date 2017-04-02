@@ -32,10 +32,10 @@ export class LoginPage {
   }
 
   goToBrochure(){
-    let data = {email:this.email, pass:this.pass}
-    this.storage.set("logged", true );
-    this.storage.set("user", JSON.stringify(data));
     this.loading.showloading();
+    // let data = {email:this.email, pass:this.pass}
+    // this.storage.set("logged", true );
+    // this.storage.set("user", JSON.stringify(data));
     this.navCtrl.push(TabsPage);
   }
     
