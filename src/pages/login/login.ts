@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 
 import { UtilService } from '../../providers/util-service';
@@ -20,7 +20,9 @@ export class LoginPage {
               public navCtrl: NavController, 
               public loading: UtilService, 
               public storage: Storage, 
-              public service: LoginService){
+              public service: LoginService,
+              public loadingCtrl: LoadingController
+              ){
     
   }
 
@@ -32,15 +34,19 @@ export class LoginPage {
     // let data = {email:this.email, pass:this.pass}
     // this.storage.set("logged", true );
     // this.storage.set("user", JSON.stringify(data));
-    // this.loading.showloading();
-    // this.navCtrl.push(TabsPage);
-    this.loading.showloading();
+    
+
+    //this.loading.showloading();
+    
+    let loading = this.loadingCtrl.create({content: "Cargando ..."});
+    loading.present();
+
     this.service.login(this.email, this.pass).subscribe(res => {
-      console.log(JSON.stringify(res));
-      this.loading.hideLoading();
-      
+      loading.dismiss();
+      //this.loading.hideLoading(); 
+      console.log(JSON.stringify(res)); 
       if(res.success){
-        this.navCtrl.push(TabsPage);  
+        this.navCtrl.push(TabsPage);     
       }else{
         this.toastCtrl.create({message: "Usuario o password invalido", duration: 3000}).present();
       }

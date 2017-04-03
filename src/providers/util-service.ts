@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 
@@ -13,17 +14,14 @@ export class UtilService {
     
   }
 
- loader = this.loadingCtrl.create({
-      content: "Cargando...",
-    });
+  loader = this.loadingCtrl.create({content: "Cargando..."});
 
   showloading(){
     this.loader.present();
-   
   }
 
   hideLoading(){
-  this.loader.dismiss();
+    this.loader.dismiss();
   }
 
 }

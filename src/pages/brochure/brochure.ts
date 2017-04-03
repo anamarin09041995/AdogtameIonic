@@ -14,7 +14,8 @@ export class BrochurePage {
   mascotas: Mascota[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: MascotaData) {
-    this.mascotas = this.service.data;
+    //this.mascotas = this.service.data;
+    this.mascotas = [];
   }
 
   goToDetail(index:  number){
@@ -23,7 +24,7 @@ export class BrochurePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BrochurePage');
+    this.service.all().subscribe(data => this.mascotas = data);
   }
 }
 
