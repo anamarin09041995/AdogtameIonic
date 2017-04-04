@@ -19,6 +19,7 @@ import { LoginService } from '../providers/login-service';
 import { MascotaData } from '../providers/mascota-data';
 import { FundacionData } from '../providers/fundacion-data';
 import { RegisterService } from '../providers/register-service';
+import { DonacionesService } from '../providers/donaciones-service';
 
 
 @NgModule({
@@ -54,6 +55,6 @@ import { RegisterService } from '../providers/register-service';
     DetailDonationPage
   ],
   providers: 
-  [{provide: ErrorHandler, useClass: IonicErrorHandler }, MascotaData, FundacionData, LoginService, RegisterService]
+  [{provide: ErrorHandler, useClass: IonicErrorHandler }, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService]
 })
 export class AppModule {}

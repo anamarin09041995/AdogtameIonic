@@ -19,8 +19,8 @@
 
       <ion-item>
         <ion-label>Valores</ion-label>
-        <ion-select [(ngModel)]="selectedvalue">
-          <ion-option *ngFor="let item of items" [value]= "item.value" >{{ item.value|currency:'USD':true:'1.0-0'}}</ion-option>
+        <ion-select required [(ngModel)]="selectedvalue">
+          <ion-option *ngFor="let item of items" [value]= "item.value">{{ item.value|currency:'USD':true:'1.0-0'}}</ion-option>
         </ion-select>
       </ion-item>
 
@@ -30,11 +30,11 @@
       <ion-list>
         <ion-item>
           <ion-label class="distance-top">Alimento</ion-label>
-          <ion-checkbox color="secondary" class="distance-top" [(ngModel)]="alimento"></ion-checkbox>
+          <ion-checkbox color="secondary" class="distance-top" required [(ngModel)]="alimento"></ion-checkbox>
         </ion-item>
         <ion-item>
           <ion-label>Implementos de salud y aseo</ion-label>
-          <ion-checkbox color="secondary" [(ngModel)]="salud"></ion-checkbox>
+          <ion-checkbox color="secondary" required [(ngModel)]="salud"></ion-checkbox>
         </ion-item>
       </ion-list>
 
