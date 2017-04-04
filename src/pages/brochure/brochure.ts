@@ -14,7 +14,6 @@ export class BrochurePage {
   mascotas: Mascota[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: MascotaData) {
-    //this.mascotas = this.service.data;
     this.mascotas = [];
   }
 

@@ -11,37 +11,35 @@ import { User } from '../../providers/login-service';
 })
 export class RegisterPage {
 
-  city: string;
-  email: string;
-  pass: string;
   user: User;
 
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public loading: UtilService,
+    public service: RegisterService,
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController
+  ) {
+    this.user = new User();
+  }
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public loading: UtilService, 
-              public service: RegisterService,
-              public toastCtrl: ToastController,
-              public loadingCtrl: LoadingController
-              ) {}
-  
-  goToBrochure(){
+  goToBrochure() {
     //this.loading.showloading();
-    let loading = this.loadingCtrl.create({content: "Cargando ..."});
+    let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
 
-    this.service.signin(this.email, this.pass, this.city).subscribe(res => {
+    this.service.signin(this.user).subscribe(res => {
       //this.loading.hideLoading();
       loading.dismiss();
       console.log(JSON.stringify(res));
-      if(res.success){
-        this.navCtrl.push(TabsPage);  
-      }else{
-        this.toastCtrl.create({message: "Este usuario ya se encuentra registrado", duration: 3000}).present();
+      if (res.success) {
+        this.navCtrl.push(TabsPage);
+      } else {
+        this.toastCtrl.create({ message: "Este usuario ya se encuentra registrado", duration: 3000 }).present();
       }
 
     });
-    
+
   }
 
   ionViewDidLoad() {

@@ -12,12 +12,16 @@ export class DonationsPage {
   fundaciones: Fundacion[];
 
   constructor(public navCtrl: NavController, public service: FundacionData) {
-    this.fundaciones = this.service.data;
+    this.fundaciones = [];
   }
 
 goToDetail(index:  number){
     this.navCtrl.push(DetailDonationPage, {nombre: this.fundaciones[index].nombre, direccion: this.fundaciones[index].direccion, telefono: this.fundaciones[index].telefono,
                       imagen: this.fundaciones[index].imagen, descripcion: this.fundaciones[index].descripcion});
+  }
+
+  ionViewDidLoad() {
+    this.service.all().subscribe(data => this.fundaciones = data);
   }
 
 }

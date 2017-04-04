@@ -11,18 +11,17 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class RegisterService {
 
   constructor(public http: Http,
-              public loading: UtilService,
-              ) { }
+    public loading: UtilService,
+  ) { }
 
 
-  signin(email: string, password: string, city: string){
+  signin(user: User) {
 
-  let contentType = new Headers({"Content-Type":"application/json"});
-  let options = new RequestOptions(contentType);
+    let contentType = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions(contentType);
 
-  const  body = {email: email, password: password, city:city};
-  return this.http.post( URL + "/users/signin", body, options).map((response) =>{
-  return response.json();
+    return this.http.post(URL + "/users/signin", user, options).map((response) => {
+      return response.json();
     }).catch((err) => {
       return Observable.throw(err);
     });

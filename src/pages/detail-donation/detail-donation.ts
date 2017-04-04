@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { DonationsPage} from '../donations/donations';
 
-/*
-  Generated class for the DetailDonation page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-detail-donation',
   templateUrl: 'detail-donation.html'
