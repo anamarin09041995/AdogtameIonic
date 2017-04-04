@@ -43,8 +43,8 @@ export class DetailDonationPage {
   }
 
   donar() {
-
-    if (this.alimento == false && this.salud == false) {
+    console.log(this);
+    if (this.selectedvalue == undefined || ((this.alimento == undefined || this.alimento == false) && (this.salud == undefined || this.salud == false))) {
       this.toastCtrl.create({ message: "Elija una de las opciones en valor y destino de la donacion", duration: 3000 }).present();
     } else {
       let confirm = this.alertCtrl.create({
@@ -61,14 +61,21 @@ export class DetailDonationPage {
             text: 'Confirmar',
             handler: () => {
               console.log('De acuerdo');
+              console.log(this);
+              this.service.addDonation(this.selectedvalue, this.alimento, this.salud).subscribe(res => {
+                console.log(JSON.stringify(res));
+              });
             }
           }
         ]
       });
       confirm.present();
-      this.service.addDonation(this.selectedvalue, this.alimento, this.salud).subscribe(res => {
-        console.log(JSON.stringify(res));
-      });
+      console.log(this);
+      console.log(confirm);
+
+      //this.service.addDonation(this.selectedvalue, this.alimento == undefined ? false : this.alimento, this.salud == undefined ? false : this.salud).subscribe(res => {
+      //console.log(JSON.stringify(res));
+      //});
 
     }
 
