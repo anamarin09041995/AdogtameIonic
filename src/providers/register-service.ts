@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { User } from './login-service';
 import { URL } from '../app/app.config';
 import { TabsPage } from '../pages/tabs/tabs';
-//import { NavController } from 'ionic-angular';
 
 @Injectable()
 export class RegisterService {
