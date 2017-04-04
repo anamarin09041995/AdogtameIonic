@@ -70,8 +70,6 @@ export class DetailDonationPage {
         ]
       });
       confirm.present();
-      console.log(this);
-      console.log(confirm);
 
       //this.service.addDonation(this.selectedvalue, this.alimento == undefined ? false : this.alimento, this.salud == undefined ? false : this.salud).subscribe(res => {
       //console.log(JSON.stringify(res));
