@@ -1,14 +1,22 @@
 <ion-header>
   <ion-toolbar item-left color="primary">
-    <ion-title class= "toolbar-title">Seguimiento</ion-title>
+    <ion-title class="toolbar-title">Seguimiento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 
 <ion-content padding>
-
-  <p></p>
- 
-
+  <ion-row>
+    <ion-col *ngFor="let mascota of mascotas" col-12 col-md-6 col-lg-4>
+      <ion-col col-12 col-md-6 padding>
+        <img class="full-image" src="{{mascota.imagen}}">
+        <h2 class="subtitulo"><ion-icon name="paw" item-left small color="secondary" margin-right></ion-icon>{{mascota.nombre}}</h2>
+        <div margin-vertical class="distance-top">
+          <h3> Descripción: </h3>
+          <p>{{mascota.descripcion}}</p>
+        </div>
+      </ion-col>
+    </ion-col>
+  </ion-row>
 </ion-content>

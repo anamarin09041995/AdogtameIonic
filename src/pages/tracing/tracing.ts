@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DetailBrochurePage } from '../detail-brochure/detail-brochure';
 import { BrochurePage } from '../brochure/brochure';
 import { Storage } from '@ionic/storage';
+import { Mascota } from '../../providers/mascota-data';
+import { SeguimientoService } from '../../providers/seguimiento-service';
 
 
 @Component({
@@ -13,13 +15,16 @@ export class TracingPage {
 
   nombre: string;
   imagen: string;
+  mascotas: Mascota[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public service
+  :SeguimientoService ) {
      //storage.get("detail");
+     this.mascotas = [];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TracingPage');
+    this.service.all().subscribe(data => this.mascotas = data);
   }
 
 
