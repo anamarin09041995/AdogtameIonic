@@ -11,7 +11,11 @@ export class VoluntaryPage {
   fundaciones: Fundacion[];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public service: FundacionData) {
-    this.fundaciones = this.service.data;
+    this.fundaciones = [];
+  }
+
+  ionViewDidLoad() {
+    this.service.all().subscribe(data => this.fundaciones = data);
   }
 
   confirm(index: number){
@@ -21,11 +25,6 @@ export class VoluntaryPage {
       buttons: ['Aceptar']
     });
     alert.present();
-  }
-  
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VoluntaryPage');
   }
 
 }

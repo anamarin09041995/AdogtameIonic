@@ -1,31 +1,41 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { UtilService } from '../../providers/util-service';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { RegisterService } from '../../providers/register-service';
 import { TabsPage } from '../tabs/tabs';
+import { User } from '../../providers/login-service';
 
-
-/*
-  Generated class for the Register page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html'
 })
 export class RegisterPage {
 
-  city: string;
-  email: string;
-  pass: string;
+  user: User;
 
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public service: RegisterService,
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController
+  ) {
+    this.user = new User();
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loading: UtilService) {}
-  
-  goToBrochure(){
-    this.loading.showloading();
-    this.navCtrl.setRoot(TabsPage);
+  goToBrochure() {
+    let loading = this.loadingCtrl.create({ content: "Cargando ..." });
+    loading.present();
+
+    this.service.signin(this.user).subscribe(res => {
+      loading.dismiss();
+      console.log(JSON.stringify(res));
+      if (res.success) {
+        this.navCtrl.push(TabsPage);
+      } else {
+        this.toastCtrl.create({ message: "Este usuario ya se encuentra registrado", duration: 3000 }).present();
+      }
+
+    });
+
   }
 
   ionViewDidLoad() {

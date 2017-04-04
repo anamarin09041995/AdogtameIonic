@@ -1,18 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { URL } from '../app/app.config';
 
-/*
-  Generated class for the LoginService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class LoginService {
 
-  constructor(public http: Http) {
-    console.log('Hello LoginService Provider');
+  constructor(public http: Http) { }
+
+  signin(user: User){
+
+  let contentType = new Headers({"Content-Type":"application/json"});
+  let options = new RequestOptions(contentType);
+
+    return this.http.post( URL + "/users/signin", user, options).map((response) =>{
+      return response.json();
+    }).catch((err) => {
+      return Observable.throw(err);
+    });
   }
 
+  login(email: string, password: string): Observable<{success: boolean, user: any}>{
+
+    let contentType = new Headers({"Content-Type":"application/json"});
+    let options = new RequestOptions(contentType);
+
+    const  body = {email: email, password: password};
+    return this.http.post( URL + "/users/login", body, options).map((response) => {
+      return response.json();
+    }).catch(err => {
+      return Observable.throw(err);
+    });
+  }
+}
+
+export class User{
+  email: string;
+  password: string;
+  city: string;
 }

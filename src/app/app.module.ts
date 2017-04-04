@@ -15,9 +15,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DetailBrochurePage } from '../pages/detail-brochure/detail-brochure';
 import { DetailDonationPage } from '../pages/detail-donation/detail-donation';
 
-import { UtilService } from '../providers/util-service';
+import { LoginService } from '../providers/login-service';
 import { MascotaData } from '../providers/mascota-data';
 import { FundacionData } from '../providers/fundacion-data';
+import { RegisterService } from '../providers/register-service';
 
 
 @NgModule({
@@ -53,6 +54,6 @@ import { FundacionData } from '../providers/fundacion-data';
     DetailDonationPage
   ],
   providers: 
-  [{provide: ErrorHandler, useClass: IonicErrorHandler }, UtilService, MascotaData, FundacionData]
+  [{provide: ErrorHandler, useClass: IonicErrorHandler }, MascotaData, FundacionData, LoginService, RegisterService]
 })
 export class AppModule {}

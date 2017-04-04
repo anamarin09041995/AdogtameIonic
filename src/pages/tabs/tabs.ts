@@ -27,7 +27,7 @@ export class TabsPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
-    storage.get("user").then(val =>{console.log(val);});
+    //storage.get("user").then(val =>{console.log(val);});
   }
 
   ionViewDidLoad() {
