@@ -39,6 +39,8 @@ export class LoginPage {
       loading.dismiss();
       console.log(JSON.stringify(res)); 
       if(res.success){
+        this.storage.set("email", this.email);
+        this.storage.set("id", res.user._id);
         this.navCtrl.push(TabsPage);     
       }else{
         this.toastCtrl.create({message: "Usuario o password invalido", duration: 3000}).present();

@@ -18,6 +18,8 @@ export class DetailBrochurePage {
   contacto: number;
   descripcion: string;
 
+  apadrinado:boolean;
+
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -31,7 +33,7 @@ export class DetailBrochurePage {
     this.fundacion = this.navParams.get("fundacion");
     this.contacto = this.navParams.get("contacto");
     this.descripcion = this.navParams.get("descripcion");
-
+    this.apadrinado = false;
     //let data1 = {nombre:this.nombre, imagen:this.imagen, contacto: this.contacto}
     //this.storage.set("selected", true );
     //this.storage.set("detail", JSON.stringify(data1));
@@ -39,6 +41,7 @@ export class DetailBrochurePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailBrochurePage');
+    this.service.verificarMascota(this.nombre).subscribe(res=>this.apadrinado = true, err => this.apadrinado = false);
   }
 
   adoptar() {

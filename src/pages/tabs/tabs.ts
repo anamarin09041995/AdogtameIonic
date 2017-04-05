@@ -7,6 +7,7 @@ import { VoluntaryPage } from '../voluntary/voluntary';
 import { DonationsPage } from '../donations/donations';
 
 import { Storage } from '@ionic/storage';
+import { SessionService } from "../../providers/session.service";
 
 /*
   Generated class for the Tabs page.
@@ -26,8 +27,9 @@ export class TabsPage {
   tab4Root: any = VoluntaryPage;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
-    //storage.get("user").then(val =>{console.log(val);});
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public session:SessionService) {
+    storage.get("email").then(val => this.session.email = val);
+    storage.get("id").then(val => this.session.id = val);
   }
 
   ionViewDidLoad() {
