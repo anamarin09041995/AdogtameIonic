@@ -16,6 +16,7 @@ export class MyApp {
  
   constructor(platform: Platform, public storage: Storage) {
     platform.ready().then(() => {
+      storage.ready().then(() => {});
       
       //  storage.get("logged").then((val) => {
       //   if (val){

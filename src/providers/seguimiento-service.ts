@@ -20,7 +20,7 @@ export class SeguimientoService {
   }
 
   verificarMascota(nombre: string): Observable<Apadrinado> {
-    return this.http.get(URL + "/seguimmiento/" + this.session.id + "/mascota/" + nombre).map(response => {
+    return this.http.get(URL + "/seguimiento/" + this.session.id + "/mascotas/" + nombre).map(response => {
       return response.json();
     }).catch(err => {
       return Observable.throw(err);

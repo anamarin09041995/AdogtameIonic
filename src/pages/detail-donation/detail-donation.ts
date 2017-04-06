@@ -48,7 +48,7 @@ export class DetailDonationPage {
       this.toastCtrl.create({ message: "Elija una de las opciones en valor y destino de la donacion", duration: 3000 }).present();
     } else {
       let confirm = this.alertCtrl.create({
-        title: '¡Muchas gracias por donar a ' + this.nombre,
+        title: 'Confirmacion de donacion',
         message: 'Va a donar ' + this.selectedvalue + ' destinados a ' + (this.alimento ? 'alimento ' : '') + (this.salud ? 'e implementos de salud y aseo' : ''),
         buttons: [
           {
