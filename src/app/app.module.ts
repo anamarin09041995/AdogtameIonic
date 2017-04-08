@@ -36,7 +36,7 @@ import { SessionService } from '../providers/session.service';
     TabsPage,
     BrochurePage,
     DetailBrochurePage,
-    DetailDonationPage
+    DetailDonationPage, 
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,7 +54,7 @@ import { SessionService } from '../providers/session.service';
     TabsPage,
     BrochurePage,
     DetailBrochurePage,
-    DetailDonationPage
+    DetailDonationPage,
   ],
   providers: 
   [{provide: ErrorHandler, useClass: IonicErrorHandler },SeguimientoService, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService, SessionService]

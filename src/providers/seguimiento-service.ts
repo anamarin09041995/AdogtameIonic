@@ -28,7 +28,6 @@ export class SeguimientoService {
   }
 
   apadrinar(nombre: string, imagen: string, descripcion: string): Observable<{ success: boolean }> {
-
     let contentType = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions(contentType);
     const body = { nombre: nombre, imagen: imagen, descripcion: descripcion, usuario: { id: this.session.id, email: this.session.email } };

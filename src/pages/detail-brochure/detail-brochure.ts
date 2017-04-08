@@ -4,7 +4,10 @@ import { BrochurePage} from '../brochure/brochure';
 import { TracingPage } from '../tracing/tracing';
 import { Storage } from '@ionic/storage';
 import { SeguimientoService } from '../../providers/seguimiento-service';
+import { Mascota } from '../../providers/mascota-data';
 import { Events } from 'ionic-angular';
+
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({
@@ -18,8 +21,10 @@ export class DetailBrochurePage {
   fundacion: string;
   contacto: number;
   descripcion: string;
-
+  
   apadrinado:boolean;
+  mascota: Mascota;
+  data = [];
 
 
   constructor(public navCtrl: NavController, 
@@ -59,6 +64,11 @@ export class DetailBrochurePage {
   apadrinar() {
     let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
+
+    this.data.push(this.mascota);
+    console.log(this.data);
+    this.storage.set("detail", JSON.stringify(this.data));
+
      this.service.apadrinar(this.nombre, this.imagen, this.descripcion).subscribe(res => {
        loading.dismiss();
       console.log(JSON.stringify(res));

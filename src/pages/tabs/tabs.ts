@@ -26,14 +26,15 @@ export class TabsPage {
               public storage: Storage, 
               public session:SessionService,
               public events: Events) {
-    storage.get("email").then(val => this.session.email = val);
-    storage.get("id").then(val => this.session.id = val);
+    
    // events.subscribe("db:ready",this.goToApadrinar);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
   }
+
+  
 
   // goToApadrinar(){
   //   this.navCtrl.push(TracingPage);

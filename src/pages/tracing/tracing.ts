@@ -19,7 +19,10 @@ export class TracingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public service
   :SeguimientoService ) {
-     //storage.get("detail");
+     storage.get("detail").then(val =>{
+       JSON.parse(val);
+       console.log(val);
+     });
      this.mascotas = [];
   }
 
