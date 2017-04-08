@@ -4,6 +4,7 @@ import { BrochurePage} from '../brochure/brochure';
 import { TracingPage } from '../tracing/tracing';
 import { Storage } from '@ionic/storage';
 import { SeguimientoService } from '../../providers/seguimiento-service';
+import { Events } from 'ionic-angular';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class DetailBrochurePage {
               public storage: Storage,
               public service: SeguimientoService,
               public toastCtrl: ToastController,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              public events:Events) {
     this.nombre = this.navParams.get("nombre");
     this.imagen = this.navParams.get("imagen");
     this.fundacion = this.navParams.get("fundacion");
@@ -61,6 +63,7 @@ export class DetailBrochurePage {
        loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
+        //this.events.publish("db:ready");
         this.navCtrl.push(TracingPage);
       } else {
         this.toastCtrl.create({ message: "Error", duration: 3000 }).present();

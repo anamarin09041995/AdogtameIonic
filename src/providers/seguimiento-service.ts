@@ -33,6 +33,7 @@ export class SeguimientoService {
     let options = new RequestOptions(contentType);
     const body = { nombre: nombre, imagen: imagen, descripcion: descripcion, usuario: { id: this.session.id, email: this.session.email } };
     return this.http.post(URL + "/seguimiento", body, options).map((response) => {
+      console.log(body);
       return response.json();
     }).catch((err) => {
       return Observable.throw(err);
@@ -42,7 +43,6 @@ export class SeguimientoService {
   }
 
 }
-
 export class Apadrinado {
   nombre: string;
   descripcion: string;

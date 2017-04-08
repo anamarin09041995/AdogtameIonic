@@ -26,7 +26,4 @@ export class TracingPage {
   ionViewDidLoad() {
     this.service.all().subscribe(data => this.mascotas = data);
   }
-
-
-
 }
