@@ -5,6 +5,7 @@ import { TracingPage } from '../tracing/tracing';
 import { Storage } from '@ionic/storage';
 import { SeguimientoService } from '../../providers/seguimiento-service';
 import { Mascota } from '../../providers/mascota-data';
+import { EmailService } from '../../providers/email-service';
 import { Events } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
@@ -57,6 +58,7 @@ export class DetailBrochurePage {
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
       buttons: ['Aceptar']
     });
+    adoptar();
     alert.present();
     this.navCtrl.pop(BrochurePage);
   }

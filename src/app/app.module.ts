@@ -22,6 +22,7 @@ import { RegisterService } from '../providers/register-service';
 import { DonacionesService } from '../providers/donaciones-service';
 import { SeguimientoService } from '../providers/seguimiento-service';
 import { SessionService } from '../providers/session.service';
+import { EmailService } from '../providers/email-service';
 
 
 @NgModule({
@@ -57,6 +58,6 @@ import { SessionService } from '../providers/session.service';
     DetailDonationPage,
   ],
   providers: 
-  [{provide: ErrorHandler, useClass: IonicErrorHandler },SeguimientoService, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService, SessionService]
+  [{provide: ErrorHandler, useClass: IonicErrorHandler },EmailService, SeguimientoService, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService, SessionService]
 })
 export class AppModule {}
