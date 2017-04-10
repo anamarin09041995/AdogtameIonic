@@ -35,7 +35,8 @@ export class DetailBrochurePage {
               public service: SeguimientoService,
               public toastCtrl: ToastController,
               public loadingCtrl: LoadingController,
-              public events:Events) {
+              public events:Events,
+              public emailService: EmailService) {
     this.nombre = this.navParams.get("nombre");
     this.imagen = this.navParams.get("imagen");
     this.fundacion = this.navParams.get("fundacion");
@@ -58,7 +59,7 @@ export class DetailBrochurePage {
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
       buttons: ['Aceptar']
     });
-    adoptar();
+    this.emailService.adoptar();
     alert.present();
     this.navCtrl.pop(BrochurePage);
   }

@@ -28,6 +28,7 @@ export class EmailService {
     };
 
     return this.http.post(URL + "/adopcion", mailOptions).map(response => {
+      console.log(response);
       return response.json();
     }).catch(err => {
       return Observable.throw(err);
