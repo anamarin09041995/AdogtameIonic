@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { SessionService } from './session.service';
 import { Apadrinado } from './seguimiento-service';
 import { Observable } from 'rxjs/Observable';
+import { URL } from '../app/app.config';
 
 @Injectable()
 export class EmailService {
@@ -14,25 +15,23 @@ export class EmailService {
     console.log('Hello EmailService Provider');
   }
 
-  adoptar(): Observable<{ success: boolean }> {
-
+  adoptar1(): Observable<{ success: boolean }> {
     let contentType = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions(contentType);
-
-    const mailOptions = {
+    const body = {
       from: '<anamarin@unicauca.edu.co>',
       to: this.session.email,
       subject: 'Formato de adopcion',
       text: 'Gracias por ser parte del cambio',
       html: '<p>Formato de adopcion</p>',
     };
-
-    return this.http.post(URL + "/adopcion", mailOptions).map(response => {
-      console.log(response);
+    return this.http.post(URL + "/email", body, options).map((response) => {
+      console.log(body);
       return response.json();
-    }).catch(err => {
+    }).catch((err) => {
       return Observable.throw(err);
-    });;
+    });
+
   }
 
 }

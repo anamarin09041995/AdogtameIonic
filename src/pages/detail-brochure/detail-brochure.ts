@@ -59,7 +59,7 @@ export class DetailBrochurePage {
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
       buttons: ['Aceptar']
     });
-    this.emailService.adoptar();
+    this.emailService.adoptar1();
     alert.present();
     this.navCtrl.pop(BrochurePage);
   }
