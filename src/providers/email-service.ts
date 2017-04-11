@@ -15,17 +15,11 @@ export class EmailService {
     console.log('Hello EmailService Provider');
   }
 
-  adoptar1(): Observable<{ success: boolean }> {
+  adoptar(){
     let contentType = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions(contentType);
-    const body = {
-      from: '<anamarin@unicauca.edu.co>',
-      to: this.session.email,
-      subject: 'Formato de adopcion',
-      text: 'Gracias por ser parte del cambio',
-      html: '<p>Formato de adopcion</p>',
-    };
-    return this.http.post(URL + "/email", body, options).map((response) => {
+    const body = {email: this.session.email}
+     return this.http.post(URL + "/email", body, options).map((response) => {
       console.log(body);
       return response.json();
     }).catch((err) => {
@@ -33,5 +27,14 @@ export class EmailService {
     });
 
   }
+    // const body = {
+    //   from: '<anamarin@unicauca.edu.co>',
+    //   to: this.session.email,
+    //   subject: 'Formato de adopcion',
+    //   text: 'Gracias por ser parte del cambio',
+    //   html: '<p>Formato de adopcion</p>',
+    // };
+    // console.log(body);
+   
 
 }

@@ -54,12 +54,12 @@ export class DetailBrochurePage {
   }
 
   adoptar() {
+    this.emailService.adoptar();
     let alert = this.alertCtrl.create({
       title: '¡Muchas gracias por adoptar a '+ this.nombre,
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
       buttons: ['Aceptar']
     });
-    this.emailService.adoptar1();
     alert.present();
     this.navCtrl.pop(BrochurePage);
   }
