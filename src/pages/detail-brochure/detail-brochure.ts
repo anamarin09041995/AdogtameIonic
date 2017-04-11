@@ -54,11 +54,18 @@ export class DetailBrochurePage {
   }
 
   adoptar() {
-    this.emailService.adoptar();
+    
     let alert = this.alertCtrl.create({
       title: '¡Muchas gracias por adoptar a '+ this.nombre,
       subTitle: 'Nos comunicaremos mediante un correo para detallar el proceso de adopción',
-      buttons: ['Aceptar']
+      buttons: [{
+            text: 'Aceptar',
+            handler: () => {
+              console.log(this);
+              console.log(this.emailService.adoptar());
+              console.log('Aceptado');
+            }
+          }]
     });
     alert.present();
     this.navCtrl.pop(BrochurePage);
@@ -71,7 +78,6 @@ export class DetailBrochurePage {
     this.data.push(this.mascota);
     console.log(this.data);
     this.storage.set("detail", JSON.stringify(this.data));
-
      this.service.apadrinar(this.nombre, this.imagen, this.descripcion).subscribe(res => {
        loading.dismiss();
       console.log(JSON.stringify(res));

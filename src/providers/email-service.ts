@@ -18,9 +18,8 @@ export class EmailService {
   adoptar(){
     let contentType = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions(contentType);
-    const body = {email: this.session.email}
-     return this.http.post(URL + "/email", body, options).map((response) => {
-      console.log(body);
+     return this.http.post(URL + "/email", this.session.email, options).map((response) => {
+      console.log(this.session.email);
       return response.json();
     }).catch((err) => {
       return Observable.throw(err);

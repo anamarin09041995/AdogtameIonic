@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { RegisterService } from '../../providers/register-service';
 import { TabsPage } from '../tabs/tabs';
+import { LoginPage } from '../login/login';
 import { User } from '../../providers/login-service';
 
 @Component({
@@ -33,9 +34,12 @@ export class RegisterPage {
       } else {
         this.toastCtrl.create({ message: "Este usuario ya se encuentra registrado", duration: 3000 }).present();
       }
-
     });
 
+  }
+
+  logout(){
+    this.navCtrl.setRoot(LoginPage);
   }
 
   ionViewDidLoad() {
