@@ -82,8 +82,8 @@ export class DetailBrochurePage {
        loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
-        //this.events.publish("db:ready");
-        this.navCtrl.push(TracingPage);
+        this.events.publish("nav:tracing");
+        //this.navCtrl.push(TracingPage);
       } else {
         this.toastCtrl.create({ message: "Error", duration: 3000 }).present();
       }

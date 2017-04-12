@@ -18,6 +18,7 @@ export class BrochurePage {
   }
 
   goToDetail(index:  number){
+    
     this.navCtrl.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen, fundacion: this.mascotas[index].fundacion,
                       contacto: this.mascotas[index].contacto, descripcion: this.mascotas[index].descripcion});
   }

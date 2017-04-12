@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams, Events, Nav } from 'ionic-angular';
 
 import { TracingPage } from '../tracing/tracing';
 import { BrochurePage } from '../brochure/brochure';
@@ -20,24 +20,19 @@ export class TabsPage {
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
 
-
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
+              public nav: Nav, 
               public navParams: NavParams, 
               public storage: Storage, 
               public session:SessionService,
               public events: Events) {
     
-   // events.subscribe("db:ready",this.goToApadrinar);
+    events.subscribe("nav:tracing", () => {
+      this.navCtrl.push(TracingPage);
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
   }
-
-  
-
-  // goToApadrinar(){
-  //   this.navCtrl.push(TracingPage);
-  // }
-
 }
