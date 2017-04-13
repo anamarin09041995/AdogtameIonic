@@ -24,7 +24,7 @@ export class TabsPage {
   tab2Root: any = DonationsPage;
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
-  tab5Root: any = LoginPage;
+  //tab5Root: any = LoginPage;
   mascotas: Mascota[];
 
 

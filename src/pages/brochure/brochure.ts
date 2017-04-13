@@ -3,6 +3,7 @@ import { NavController, NavParams, Events } from 'ionic-angular';
 import { Mascota, MascotaData} from '../../providers/mascota-data';
 import { DetailBrochurePage } from '../detail-brochure/detail-brochure';
 import { TracingPage} from '../tracing/tracing';
+import { LoginPage } from '../login/login';
 import { Storage } from '@ionic/storage';
 import { SessionService } from "../../providers/session.service";
 import { MascotaSelected } from "../../providers/mascota-selected";
@@ -28,6 +29,11 @@ export class BrochurePage {
   goToDetail(index:  number){
       this.selected.selected = this.mascotas[index];
       this.events.publish("nav:detail");
+  }
+
+  logout(){
+    this.navCtrl.setRoot(LoginPage);
+    this.storage.set("logged", false);
   }
 
   ionViewDidLoad() {

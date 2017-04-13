@@ -30,10 +30,10 @@ export class LoginPage {
   }
 
   goToBrochure() {
-     let data = { email: this.email, pass: this.pass };
-        this.storage.set("logged", true);
-        this.storage.set("user", JSON.stringify(data));
-        console.log(data);
+    //  let data = { email: this.email, pass: this.pass };
+    //     this.storage.set("logged", true);
+    //     this.storage.set("user", JSON.stringify(data));
+    //     console.log(data);
 
     let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
@@ -50,9 +50,6 @@ export class LoginPage {
         });
         this.storage.set("id", res.user._id).then(() => {
           this.storage.get("id").then(val => this.session.id = val);
-        });
-        this.storage.set("pass", this.pass).then(() => {
-          this.storage.get("pass").then(val => this.session.pass = val);
         });
 
         this.navCtrl.push(TabsPage);
