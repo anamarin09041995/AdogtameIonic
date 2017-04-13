@@ -55,6 +55,7 @@ export class DetailDonationPage {
             text: 'Cancelar',
             handler: () => {
               console.log('Cancelado');
+              this.navCtrl.pop();
             }
           },
           {
@@ -64,6 +65,7 @@ export class DetailDonationPage {
               console.log(this);
               this.service.addDonation(this.selectedvalue, this.alimento, this.salud).subscribe(res => {
                 console.log(JSON.stringify(res));
+                this.navCtrl.pop();
               });
             }
           }

@@ -4,4 +4,5 @@ import {Injectable} from '@angular/core';
 export class SessionService{
     email:string;
     id:string;
+    pass: string;
 }

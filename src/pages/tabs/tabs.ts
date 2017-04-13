@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Events, Nav, Tabs } from 'ionic-angular';
 
 import { TracingPage } from '../tracing/tracing';
+import { LoginPage } from '../login/login';
 import { BrochurePage } from '../brochure/brochure';
 import { VoluntaryPage } from '../voluntary/voluntary';
 import { DonationsPage } from '../donations/donations';
@@ -23,6 +24,7 @@ export class TabsPage {
   tab2Root: any = DonationsPage;
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
+  tab5Root: any = LoginPage;
   mascotas: Mascota[];
 
 
@@ -40,6 +42,11 @@ export class TabsPage {
     this.events.subscribe("nav:tracing", () => {
       this.goToTracing();
     });
+  }
+  
+  logout(){
+/*    this.navCtrl.setRoot(LoginPage);*/
+    this.storage.set("logged", false);
   }
 
   ionViewDidLoad() {

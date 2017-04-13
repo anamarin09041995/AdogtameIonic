@@ -30,14 +30,15 @@ export class LoginPage {
   }
 
   goToBrochure() {
+     let data = { email: this.email, pass: this.pass };
+        this.storage.set("logged", true);
+        this.storage.set("user", JSON.stringify(data));
+        console.log(data);
+
     let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
 
     this.service.login(this.email, this.pass).subscribe(res => {
-      let data = { email: this.email, pass: this.pass }
-      console.log(data);
-      this.storage.set("logged", true);
-      this.storage.set("user", JSON.stringify(data));
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
@@ -49,6 +50,9 @@ export class LoginPage {
         });
         this.storage.set("id", res.user._id).then(() => {
           this.storage.get("id").then(val => this.session.id = val);
+        });
+        this.storage.set("pass", this.pass).then(() => {
+          this.storage.get("pass").then(val => this.session.pass = val);
         });
 
         this.navCtrl.push(TabsPage);

@@ -67,7 +67,7 @@ export class DetailBrochurePage {
       }]
     });
     alert.present();
-    this.navCtrl.pop();
+    this.navCtrl.pop();   
     
   }
 
