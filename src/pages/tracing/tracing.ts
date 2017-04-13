@@ -5,6 +5,7 @@ import { BrochurePage } from '../brochure/brochure';
 import { Storage } from '@ionic/storage';
 import { Mascota } from '../../providers/mascota-data';
 import { SeguimientoService } from '../../providers/seguimiento-service';
+import { SessionService } from '../../providers/session.service';
 
 
 @Component({
@@ -17,13 +18,19 @@ export class TracingPage {
   imagen: string;
   mascotas: Mascota[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public service
-  :SeguimientoService ) {
-     storage.get("detail").then(val =>{
-       JSON.parse(val);
-       console.log(val);
-     });
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public storage: Storage,
+              public service :SeguimientoService,
+              public session : SessionService ) {
      this.mascotas = [];
+    //  this.storage.set("tracing", this.session.data1).then(() => {
+    //     this.storage.get("tracing").then(val => console.log(val))});
+
+    this.storage.get("detail").then(val => {
+          this.session.data1 = val
+          console.log(this.session.data1);
+        });
   }
 
   ionViewDidLoad() {

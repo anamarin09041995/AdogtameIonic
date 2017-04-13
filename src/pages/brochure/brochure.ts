@@ -26,17 +26,18 @@ export class BrochurePage {
   }
 
   goToDetail(index:  number){
-    this.storage.set("index", index).then(() => {
-      console.log(index);
-          this.storage.get("index").then(val => {
-            console.log(val);
-            this.session.index = val;
-            console.log(this.session.index);
-          });
-        });
-     this.events.publish("nav:tracing");
-    //  this.navCtrl.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen, fundacion: this.mascotas[index].fundacion,
-    //                    contacto: this.mascotas[index].contacto, descripcion: this.mascotas[index].descripcion});
+    // this.storage.set("index", index).then(() => {
+    //   console.log(index);
+    //       this.storage.get("index").then(val => {
+    //         console.log(val);
+    //         this.session.index = val;
+    //         console.log(this.session.index);
+    //       });
+    //     });
+    //  this.events.publish("nav:tracing");
+
+      this.navCtrl.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen, fundacion: this.mascotas[index].fundacion,
+                        contacto: this.mascotas[index].contacto, descripcion: this.mascotas[index].descripcion});
   }
 
   ionViewDidLoad() {
