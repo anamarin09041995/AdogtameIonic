@@ -30,14 +30,14 @@ export class LoginPage {
   }
 
   goToBrochure() {
-    // let data = {email:this.email, pass:this.pass}
-    // this.storage.set("logged", true );
-    // this.storage.set("user", JSON.stringify(data));
-
     let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
 
     this.service.login(this.email, this.pass).subscribe(res => {
+      let data = { email: this.email, pass: this.pass }
+      console.log(data);
+      this.storage.set("logged", true);
+      this.storage.set("user", JSON.stringify(data));
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {

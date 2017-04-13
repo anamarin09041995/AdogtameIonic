@@ -61,7 +61,7 @@ export class DetailBrochurePage {
       buttons: [{
         text: 'Aceptar',
         handler: () => {
-          this.emailService.adoptar();
+          this.emailService.adoptar().subscribe(res => console.log(res), err => console.log(err));
           console.log('Aceptado');
         }
       }]
