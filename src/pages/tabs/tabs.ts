@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, Events, Nav } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Events, Nav, Tabs } from 'ionic-angular';
 
 import { TracingPage } from '../tracing/tracing';
 import { BrochurePage } from '../brochure/brochure';
@@ -17,12 +17,13 @@ import { Mascota, MascotaData } from "../../providers/mascota-data";
 })
 export class TabsPage {
 
+  @ViewChild("tabs") tabs: Tabs;
+
   tab1Root: any = BrochurePage;
   tab2Root: any = DonationsPage;
   tab3Root: any = TracingPage;
   tab4Root: any = VoluntaryPage;
   mascotas: Mascota[];
-  index: number;
 
 
   constructor(public navCtrl: NavController,
@@ -33,20 +34,23 @@ export class TabsPage {
     public events: Events,
     public service: MascotaData) {
 
-    // this.mascotas = [];
-    // this.service.all().subscribe(data => this.mascotas = data);
-    // this.index = this.session.index;
-    // console.log(this.index);
-    // events.subscribe("nav:tracing", () => {
-      
-      //console.log(this.session.index);
-      ///this.navCtrl.push(DetailBrochurePage, { nombre: this.mascotas[this.session.index].nombre });
-      // this.navCtrl.push(DetailBrochurePage, {nombre: this.mascotas[index].nombre, imagen: this.mascotas[index].imagen, fundacion: this.mascotas[index].fundacion,
-      //                 contacto: this.mascotas[index].contacto, descripcion: this.mascotas[index].descripcion});
-    //});
+    this.events.subscribe("nav:detail", () => {
+      this.goToDetail();
+    });
+    this.events.subscribe("nav:tracing", () => {
+      this.goToTracing();
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
+  }
+
+  goToDetail(){
+    this.navCtrl.push(DetailBrochurePage);
+  }
+
+  goToTracing(){
+    this.tabs.select(2);
   }
 }

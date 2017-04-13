@@ -4,7 +4,4 @@ import {Injectable} from '@angular/core';
 export class SessionService{
     email:string;
     id:string;
-    index:number;
-    data1=[];
-
 }

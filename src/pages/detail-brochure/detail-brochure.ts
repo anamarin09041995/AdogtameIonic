@@ -7,9 +7,9 @@ import { SeguimientoService } from '../../providers/seguimiento-service';
 import { Mascota } from '../../providers/mascota-data';
 import { EmailService } from '../../providers/email-service';
 import { Events } from 'ionic-angular';
-
+import { MascotaSelected } from '../../providers/mascota-selected';
 import { TabsPage } from '../tabs/tabs';
-import { SessionService } from '../../providers/session.service';
+
 
 @Component({
   selector: 'page-detail-brochure',
@@ -22,11 +22,9 @@ export class DetailBrochurePage {
   fundacion: string;
   contacto: number;
   descripcion: string;
-
   apadrinado: boolean;
   mascota: Mascota;
-  data = [];
-  data1 = [];
+  
 
 
   constructor(public navCtrl: NavController,
@@ -38,12 +36,15 @@ export class DetailBrochurePage {
     public loadingCtrl: LoadingController,
     public events: Events,
     public emailService: EmailService,
-    public session: SessionService) {
-    this.nombre = this.navParams.get("nombre");
-    this.imagen = this.navParams.get("imagen");
-    this.fundacion = this.navParams.get("fundacion");
-    this.contacto = this.navParams.get("contacto");
-    this.descripcion = this.navParams.get("descripcion");
+    public selected: MascotaSelected) {
+
+    let mascota = selected.selected;
+    
+    this.nombre = mascota.nombre;
+    this.imagen = mascota.imagen;
+    this.fundacion = mascota.fundacion;
+    this.contacto = mascota.contacto;
+    this.descripcion = mascota.descripcion;
     this.apadrinado = false;
   }
 
@@ -60,14 +61,14 @@ export class DetailBrochurePage {
       buttons: [{
         text: 'Aceptar',
         handler: () => {
-          console.log(this);
-          console.log(this.emailService.adoptar());
+          this.emailService.adoptar();
           console.log('Aceptado');
         }
       }]
     });
     alert.present();
-    this.navCtrl.pop(BrochurePage);
+    this.navCtrl.pop();
+    
   }
 
   apadrinar() {
@@ -75,18 +76,11 @@ export class DetailBrochurePage {
     loading.present();
 
     this.service.apadrinar(this.nombre, this.imagen, this.descripcion).subscribe(res => {
-
-      this.data.push(this.nombre, this.descripcion);
-      console.log(this.data);
-      this.storage.set("detail", this.data).then((val) => {
-        this.session.data1 = val;
-          console.log(val);
-      });
-
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
-        this.navCtrl.push(TracingPage);
+        this.navCtrl.pop();
+        this.events.publish("nav:tracing");
       } else {
         this.toastCtrl.create({ message: "Error", duration: 3000 }).present();
       }

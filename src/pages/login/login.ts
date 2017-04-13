@@ -44,7 +44,8 @@ export class LoginPage {
         this.storage.set("email", this.email).then(() => {
           this.storage.get("email").then(val => {
             this.session.email = val;
-            console.log(val)});
+            console.log(val)
+          });
         });
         this.storage.set("id", res.user._id).then(() => {
           this.storage.get("id").then(val => this.session.id = val);

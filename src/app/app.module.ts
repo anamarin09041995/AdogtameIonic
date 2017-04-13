@@ -23,6 +23,7 @@ import { DonacionesService } from '../providers/donaciones-service';
 import { SeguimientoService } from '../providers/seguimiento-service';
 import { SessionService } from '../providers/session.service';
 import { EmailService } from '../providers/email-service';
+import { MascotaSelected } from '../providers/mascota-selected';
 
 
 @NgModule({
@@ -58,6 +59,6 @@ import { EmailService } from '../providers/email-service';
     DetailDonationPage,
   ],
   providers: 
-  [{provide: ErrorHandler, useClass: IonicErrorHandler },EmailService, SeguimientoService, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService, SessionService]
+  [{provide: ErrorHandler, useClass: IonicErrorHandler },MascotaSelected, EmailService, SeguimientoService, MascotaData, FundacionData, LoginService, RegisterService, DonacionesService, SessionService]
 })
 export class AppModule {}
