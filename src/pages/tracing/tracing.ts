@@ -24,6 +24,7 @@ export class TracingPage {
               public service :SeguimientoService,
               public session : SessionService ) {
      this.mascotas = [];
+     this.doRefresh(0);
   }
 
   ionViewDidLoad() {
@@ -33,5 +34,14 @@ export class TracingPage {
     },err => {
       this.storage.get("tracing").then(val => this.mascotas = val);
     });
+  }
+
+  doRefresh(refresher) {
+    this.service.all().subscribe(data => {
+      this.mascotas = data;
+      if(refresher != 0){
+      refresher.complete();
+      }
+    }); 
   }
 }
